@@ -7,8 +7,10 @@ environment:
   sdk: '>=3.2.6 <4.0.0'
 
 dependencies:
+  bloc: ^8.1.2
   flutter:
     sdk: flutter
+  go_router: ^13.0.1
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+assets:
+  - assets/images
+  
+flutter_assets:
+  assets_path: assets/images
+  output_path: lib/core/utils
+  filename: app_assets.dart
