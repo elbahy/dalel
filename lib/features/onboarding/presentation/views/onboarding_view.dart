@@ -6,6 +6,7 @@ import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/onboarding/data/models/onboarding_model.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/custom_navbar.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/onboarding_body.dart';
+import 'package:dalel/features/onboarding/presentation/views/widgets/onboarding_button.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -37,38 +38,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 },
               ),
             ),
-            currentPage == onBoardingList.length - 1
-                ? Column(
-                    children: [
-                      CustomButton(
-                        text: AppStrings.createAccount,
-                        onPressed: () {
-                          customReplacementNavigate(context, '/signup');
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      GestureDetector(
-                        onTap: () {
-                          customReplacementNavigate(context, '/login');
-                        },
-                        child: Text(
-                          AppStrings.loginNow,
-                          style: AppStyles.poppins300Style16.copyWith(
-                              color: AppColors.deepGrey,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      )
-                    ],
-                  )
-                : CustomButton(
-                    text: AppStrings.next,
-                    onPressed: () {
-                      _controller.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOutCubicEmphasized);
-                    },
-                  ),
-            const SizedBox(height: 40)
+            OnBoardingButton(
+              currentPage: currentPage,
+              controller: _controller,
+            ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

@@ -1,6 +1,4 @@
-import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_styles.dart';
-import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/onboarding/data/models/onboarding_model.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/onboarding_text.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/smooth_page_indicator.dart';
