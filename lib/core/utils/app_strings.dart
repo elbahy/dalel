@@ -8,7 +8,7 @@ abstract class AppStrings {
       createAccount = "Create Account",
       loginNow = "Login Now",
       //!Auth Strings
-      welcome = "Welcome!",
+      welcome = "Welcome !",
       welcomeBack = "Welcome Back!",
       fristName = "First Name",
       lastName = "Last Name",
