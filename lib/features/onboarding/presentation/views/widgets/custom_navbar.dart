@@ -1,6 +1,8 @@
+import 'package:dalel/core/databases/cache/cache_helper.dart';
 import 'package:dalel/core/functions/navigation.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_styles.dart';
+import 'package:dalel/features/onboarding/presentation/views/functions/onboarding_visited.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavbar extends StatelessWidget {
@@ -12,6 +14,7 @@ class CustomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        onBoardingVisited();
         customReplacementNavigate(context, '/signup');
       },
       child: Align(
