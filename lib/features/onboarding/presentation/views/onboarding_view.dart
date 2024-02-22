@@ -1,9 +1,3 @@
-import 'package:dalel/core/functions/navigation.dart';
-import 'package:dalel/core/utils/app_colors.dart';
-import 'package:dalel/core/utils/app_strings.dart';
-import 'package:dalel/core/utils/app_styles.dart';
-import 'package:dalel/core/widgets/custom_button.dart';
-import 'package:dalel/features/onboarding/data/models/onboarding_model.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/custom_navbar.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 import 'package:dalel/features/onboarding/presentation/views/widgets/onboarding_button.dart';

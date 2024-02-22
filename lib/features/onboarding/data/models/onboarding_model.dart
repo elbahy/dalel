@@ -1,5 +1,4 @@
 import 'package:dalel/core/utils/app_assets.dart';
-import 'package:dalel/core/utils/app_strings.dart';
 
 class OnBoardingModel {
   final String image;

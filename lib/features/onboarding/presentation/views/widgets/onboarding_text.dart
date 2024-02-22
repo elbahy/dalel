@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class OnBoardingCustomText extends StatelessWidget {
   OnBoardingCustomText(
       {super.key, required this.text, required this.textStyle});
