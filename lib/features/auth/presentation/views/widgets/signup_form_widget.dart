@@ -19,7 +19,7 @@ class SignupFormWidget extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccessState) {
           toastMsg(msg: 'Account created successfully', color: Colors.green);
-          customReplacementNavigate(context, '/signin');
+          customReplacementNavigate(context, '/home');
         } else if (state is SignupFailureState) {
           toastMsg(msg: state.errorMessage, color: Colors.red);
         }
