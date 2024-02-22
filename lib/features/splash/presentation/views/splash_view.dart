@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
       isVisted =
           getIt<CacheHelper>().getData(key: 'onBoardingIsVisited') ?? false;
       isVisted
-          ? customReplacementNavigate(context, '/signin')
+          ? customReplacementNavigate(context, '/signup')
           : customReplacementNavigate(context, '/onBoarding');
     });
     super.initState();
