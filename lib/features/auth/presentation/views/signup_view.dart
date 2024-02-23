@@ -17,7 +17,7 @@ class SignupView extends StatelessWidget {
           slivers: [
             const SliverToBoxAdapter(child: SizedBox(height: 136)),
             const SliverToBoxAdapter(
-                child: WelcomeText(text: AppStrings.welcome)),
+                child: MainTitle(text: AppStrings.welcome)),
             const SliverToBoxAdapter(child: SizedBox(height: 15)),
             const SliverToBoxAdapter(child: SignupFormWidget()),
             const SliverToBoxAdapter(child: SizedBox(height: 16)),

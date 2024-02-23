@@ -1,8 +1,8 @@
 import 'package:dalel/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeText extends StatelessWidget {
-  const WelcomeText({super.key, required this.text});
+class MainTitle extends StatelessWidget {
+  const MainTitle({super.key, required this.text});
 
   final String text;
   @override

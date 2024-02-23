@@ -54,8 +54,7 @@ class SigninFormWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 GestureDetector(
-                  onTap: () =>
-                      customReplacementNavigate(context, '/forgotPassword'),
+                  onTap: () => customNavigate(context, '/forgotPassword'),
                   child: Align(
                       alignment: Alignment.topRight,
                       child: Text(
