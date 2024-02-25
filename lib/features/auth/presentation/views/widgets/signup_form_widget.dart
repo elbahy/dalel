@@ -9,6 +9,7 @@ import 'package:dalel/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignupFormWidget extends StatelessWidget {
   const SignupFormWidget({super.key});
@@ -18,10 +19,12 @@ class SignupFormWidget extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignupSuccessState) {
-          toastMsg(msg: 'Account created successfully');
+          toastMsg(
+              msg: 'Account created successfully, check your email to verify',
+              toastLength: Toast.LENGTH_LONG);
           customReplacementNavigate(context, '/signin');
         } else if (state is SignupFailureState) {
-          toastMsg(msg: state.errorMessage);
+          toastMsg(msg: state.errorMessage, toastLength: Toast.LENGTH_LONG);
         }
       },
       builder: (context, state) {
@@ -30,8 +33,12 @@ class SignupFormWidget extends StatelessWidget {
             key: authCubit.signupFormKey,
             child: Column(
               children: [
-                const CustomTextFormField(label: AppStrings.fristName),
-                const CustomTextFormField(label: AppStrings.lastName),
+                CustomTextFormField(
+                    label: AppStrings.fristName,
+                    onChanged: (value) => authCubit.fName),
+                CustomTextFormField(
+                    label: AppStrings.lastName,
+                    onChanged: (value) => authCubit.lName),
                 CustomTextFormField(
                     label: AppStrings.emailAddress,
                     onChanged: (value) {

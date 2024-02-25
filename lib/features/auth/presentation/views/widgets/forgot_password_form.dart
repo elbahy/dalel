@@ -8,6 +8,7 @@ import 'package:dalel/features/auth/presentation/auth_cubit/auth_state.dart';
 import 'package:dalel/features/auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ForgotPasswordFormWidget extends StatelessWidget {
   const ForgotPasswordFormWidget({
@@ -23,7 +24,7 @@ class ForgotPasswordFormWidget extends StatelessWidget {
           toastMsg(msg: 'Reset password link sent to your email');
           customNavigate(context, '/signin');
         } else if (state is ResetPasswordFailureState) {
-          toastMsg(msg: state.errorMessage);
+          toastMsg(msg: state.errorMessage, toastLength: Toast.LENGTH_LONG);
         }
       },
       builder: (context, state) {

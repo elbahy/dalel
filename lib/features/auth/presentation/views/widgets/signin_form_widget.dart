@@ -10,6 +10,7 @@ import 'package:dalel/features/auth/presentation/views/widgets/custom_text_field
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SigninFormWidget extends StatelessWidget {
   const SigninFormWidget({
@@ -26,12 +27,12 @@ class SigninFormWidget extends StatelessWidget {
             toastMsg(msg: 'Sign in successfully');
             customReplacementNavigate(context, '/home');
           } else {
-            toastMsg(msg: 'please verify your email address');
+            toastMsg(
+                msg: 'please verify your email address',
+                toastLength: Toast.LENGTH_LONG);
           }
         } else if (state is SigninFailureState) {
-          toastMsg(
-            msg: state.errorMessage,
-          );
+          toastMsg(msg: state.errorMessage, toastLength: Toast.LENGTH_LONG);
         }
       },
       builder: (context, state) {

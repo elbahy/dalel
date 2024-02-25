@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  String? emailAddress, password;
+  String? fName, lName, emailAddress, password;
   GlobalKey<FormState> signupFormKey = GlobalKey();
   GlobalKey<FormState> signinFormKey = GlobalKey();
   GlobalKey<FormState> resetFormKey = GlobalKey();
@@ -21,6 +22,7 @@ class AuthCubit extends Cubit<AuthState> {
         password: password!,
       );
       emit(SignupSuccessState());
+      addUserProfile();
       verfiyEmailAdress();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -83,5 +85,14 @@ class AuthCubit extends Cubit<AuthState> {
     } on FirebaseAuthException catch (e) {
       emit(ResetPasswordFailureState(errorMessage: e.code.toString()));
     }
+  }
+
+  addUserProfile() {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    users.add({
+      'email': emailAddress,
+      'first_name': fName,
+      'last_name': lName,
+    });
   }
 }
