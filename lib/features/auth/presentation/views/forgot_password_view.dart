@@ -1,8 +1,6 @@
 import 'package:dalel/core/utils/app_assets.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_styles.dart';
-import 'package:dalel/core/widgets/custom_button.dart';
-import 'package:dalel/features/auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:dalel/features/auth/presentation/views/widgets/forgot_password_form.dart';
 import 'package:dalel/features/auth/presentation/views/widgets/welcome_text.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +20,7 @@ class ForgotPasswordView extends StatelessWidget {
               child: MainTitle(text: AppStrings.forgotPasswordPage)),
           SliverToBoxAdapter(
               child: SizedBox(
-                  height: 270,
+                  height: 235,
                   child: Image.asset(Assets.assetsImagesPassword))),
           SliverToBoxAdapter(
               child: Text(AppStrings.receivePasswordReset,

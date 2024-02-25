@@ -18,10 +18,10 @@ class SignupFormWidget extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignupSuccessState) {
-          toastMsg(msg: 'Account created successfully', color: Colors.green);
-          customReplacementNavigate(context, '/home');
+          toastMsg(msg: 'Account created successfully');
+          customReplacementNavigate(context, '/signin');
         } else if (state is SignupFailureState) {
-          toastMsg(msg: state.errorMessage, color: Colors.red);
+          toastMsg(msg: state.errorMessage);
         }
       },
       builder: (context, state) {
