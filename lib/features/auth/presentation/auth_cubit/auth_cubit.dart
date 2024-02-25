@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  String? fName, lName, emailAddress, password;
+  String? firstName, lastName, emailAddress, password;
   GlobalKey<FormState> signupFormKey = GlobalKey();
   GlobalKey<FormState> signinFormKey = GlobalKey();
   GlobalKey<FormState> resetFormKey = GlobalKey();
   bool termsAndConditionsValue = false;
   bool obscureText = true;
 
-  signupWithEmailAndPassword() async {
+  Future<void> signupWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -40,17 +40,17 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  changeTermsAndConditionsValue(bool newValue) {
+  void changeTermsAndConditionsValue(bool newValue) {
     termsAndConditionsValue = newValue;
     emit(TermsAndConditionsState());
   }
 
-  changeObscureText() {
+  void changeObscureText() {
     obscureText = !obscureText;
     emit(PasswordVisibilityState());
   }
 
-  signinWithEmailAndPassword() async {
+  Future<void> signinWithEmailAndPassword() async {
     try {
       emit(SigninLoadingState());
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -73,11 +73,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  verfiyEmailAdress() async {
+  Future<void> verfiyEmailAdress() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
-  resetPassword() async {
+  Future<void> resetPassword() async {
     try {
       emit(ResetPasswordLoadingState());
       await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
@@ -87,12 +87,12 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  addUserProfile() {
+  Future<void> addUserProfile() async {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    users.add({
+    await users.add({
       'email': emailAddress,
-      'first_name': fName,
-      'last_name': lName,
+      'first_name': firstName,
+      'last_name': lastName,
     });
   }
 }

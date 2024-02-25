@@ -35,10 +35,10 @@ class SignupFormWidget extends StatelessWidget {
               children: [
                 CustomTextFormField(
                     label: AppStrings.fristName,
-                    onChanged: (value) => authCubit.fName = value),
+                    onChanged: (value) => authCubit.firstName = value),
                 CustomTextFormField(
                     label: AppStrings.lastName,
-                    onChanged: (value) => authCubit.lName = value),
+                    onChanged: (value) => authCubit.lastName = value),
                 CustomTextFormField(
                     label: AppStrings.emailAddress,
                     onChanged: (value) => authCubit.emailAddress = value),
@@ -61,11 +61,12 @@ class SignupFormWidget extends StatelessWidget {
                     : CustomButton(
                         text: AppStrings.signUp,
                         onPressed: authCubit.termsAndConditionsValue
-                            ? () {
+                            ? () async {
                                 if (authCubit.termsAndConditionsValue) {
                                   if (authCubit.signupFormKey.currentState!
                                       .validate()) {
-                                    authCubit.signupWithEmailAndPassword();
+                                    await authCubit
+                                        .signupWithEmailAndPassword();
                                   }
                                 }
                               }
