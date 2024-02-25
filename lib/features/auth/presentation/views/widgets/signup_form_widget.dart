@@ -35,28 +35,22 @@ class SignupFormWidget extends StatelessWidget {
               children: [
                 CustomTextFormField(
                     label: AppStrings.fristName,
-                    onChanged: (value) => authCubit.fName),
+                    onChanged: (value) => authCubit.fName = value),
                 CustomTextFormField(
                     label: AppStrings.lastName,
-                    onChanged: (value) => authCubit.lName),
+                    onChanged: (value) => authCubit.lName = value),
                 CustomTextFormField(
                     label: AppStrings.emailAddress,
-                    onChanged: (value) {
-                      authCubit.emailAddress = value;
-                    }),
+                    onChanged: (value) => authCubit.emailAddress = value),
                 CustomTextFormField(
                   label: AppStrings.password,
                   obscureText: authCubit.obscureText,
                   suffixIcon: IconButton(
-                      onPressed: () {
-                        authCubit.changeObscureText();
-                      },
+                      onPressed: () => authCubit.changeObscureText(),
                       icon: Icon(authCubit.obscureText
                           ? Icons.visibility_off
                           : Icons.visibility)),
-                  onChanged: (value) {
-                    authCubit.password = value;
-                  },
+                  onChanged: (value) => authCubit.password = value,
                 ),
                 const TermsAndConditionsWidget(),
                 const SizedBox(height: 88),
