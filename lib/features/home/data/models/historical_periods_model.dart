@@ -1,12 +1,11 @@
+import 'package:dalel/core/models/data_list_model.dart';
 import 'package:dalel/core/utils/app_firebase_strings.dart';
 
-class HistoricalPeriodsModel {
-  final String name;
-  final String imageUrl;
-  final String description;
-
+class HistoricalPeriodsModel extends DataListModel {
   HistoricalPeriodsModel(
-      {required this.name, required this.imageUrl, required this.description});
+      {required super.name,
+      required super.imageUrl,
+      required super.description});
 
   factory HistoricalPeriodsModel.fromJson(jsonData) {
     return HistoricalPeriodsModel(

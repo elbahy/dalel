@@ -1,15 +1,15 @@
+import 'package:dalel/core/models/data_list_model.dart';
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_styles.dart';
-import 'package:dalel/features/home/data/models/historical_periods_model.dart';
 import 'package:flutter/material.dart';
 
-class CustomPeriodListViewItem extends StatelessWidget {
-  const CustomPeriodListViewItem({
+class CustomDataListViewItem extends StatelessWidget {
+  const CustomDataListViewItem({
     super.key,
     required this.model,
   });
 
-  final HistoricalPeriodsModel model;
+  final DataListModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
