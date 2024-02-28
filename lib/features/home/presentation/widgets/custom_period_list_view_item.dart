@@ -1,13 +1,15 @@
-import 'package:dalel/core/utils/app_assets.dart';
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_styles.dart';
+import 'package:dalel/features/home/data/models/historical_periods_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomPeriodListViewItem extends StatelessWidget {
   const CustomPeriodListViewItem({
     super.key,
+    required this.model,
   });
 
+  final HistoricalPeriodsModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,17 +30,22 @@ class CustomPeriodListViewItem extends StatelessWidget {
             width: 63,
             height: 48,
             child: Text(
-              'Islamic Era',
+              model.name,
               textAlign: TextAlign.center,
               maxLines: 2,
               style: AppStyles.poppins500Style14.copyWith(fontSize: 16),
             ),
           ),
-          const ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              child: Image(
-                image: AssetImage(Assets.assetsImagesPyr),
-              ))
+          SizedBox(
+            width: 47,
+            height: 64,
+            child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                child: Image(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(model.imageUrl),
+                )),
+          )
         ],
       ),
     );

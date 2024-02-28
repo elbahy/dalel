@@ -1,4 +1,4 @@
-import 'package:dalel/features/home/presentation/views/widgets/custom_category_list_view_item.dart';
+import 'package:dalel/features/home/presentation/widgets/custom_category_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomCategoryListView extends StatelessWidget {
@@ -12,6 +12,7 @@ class CustomCategoryListView extends StatelessWidget {
       height: 133,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
           itemCount: 7,
           clipBehavior: Clip.none,
           separatorBuilder: (context, index) {

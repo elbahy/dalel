@@ -1,4 +1,3 @@
-import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
