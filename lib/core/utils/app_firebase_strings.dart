@@ -3,4 +3,5 @@ abstract class AppFirebaseStrings {
   static const String description = 'description';
   static const String name = 'name';
   static const String imageUrl = 'image_url';
+  static const String wars = 'wars';
 }

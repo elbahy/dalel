@@ -2,6 +2,7 @@ import 'package:dalel/features/auth/presentation/views/forgot_password_view.dart
 import 'package:dalel/features/auth/presentation/views/signin_view.dart';
 import 'package:dalel/features/auth/presentation/views/signup_view.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'package:dalel/features/home/presentation/views/historical_period_view.dart';
 import 'package:dalel/features/home/presentation/widgets/home_view_nav.dart';
 import 'package:dalel/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:dalel/features/splash/presentation/views/splash_view.dart';
@@ -43,5 +44,9 @@ final GoRouter appRouter = GoRouter(
       path: '/home',
       builder: (context, state) => const HomeViewNav(),
     ),
+    GoRoute(
+      path: '/historicalPeriodsView',
+      builder: (context, state) => const HistoricalPeriodView(),
+    )
   ],
 );

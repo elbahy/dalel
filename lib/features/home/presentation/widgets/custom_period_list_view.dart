@@ -13,7 +13,10 @@ class CustomPeriodListView extends StatelessWidget {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
-        return CustomDataListView(dataList: homeCubit.historicalPeriods);
+        return CustomDataListView(
+          dataList: homeCubit.historicalPeriods,
+          routePath: '/historicalPeriodsView',
+        );
       },
     );
   }
