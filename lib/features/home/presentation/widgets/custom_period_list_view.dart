@@ -14,7 +14,7 @@ class CustomPeriodListView extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return CustomDataListView(
-          dataList: homeCubit.historicalPeriods,
+          dataList: homeCubit.historicalPeriodsList,
           routePath: '/historicalPeriodsView',
         );
       },

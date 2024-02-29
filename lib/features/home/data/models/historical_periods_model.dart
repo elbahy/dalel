@@ -3,13 +3,12 @@ import 'package:dalel/core/utils/app_firebase_strings.dart';
 import 'package:dalel/features/home/data/models/historical_period_wars_model.dart';
 
 class HistoricalPeriodsModel extends DataListModel {
+  final List<WarsModel> wars;
   HistoricalPeriodsModel(
       {required this.wars,
       required super.name,
       required super.imageUrl,
       required super.description});
-
-  final List<HistoricalPeriodWarsModel> wars;
 
   factory HistoricalPeriodsModel.fromJson(jsonData, warsList) {
     return HistoricalPeriodsModel(

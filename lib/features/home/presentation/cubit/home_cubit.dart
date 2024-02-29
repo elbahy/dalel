@@ -8,8 +8,7 @@ import 'package:dalel/features/home/presentation/cubit/home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
 
-  List<HistoricalPeriodsModel> historicalPeriods = [];
-  List<HistoricalPeriodWarsModel> wars = [];
+  List<HistoricalPeriodsModel> historicalPeriodsList = [];
 
   getHistoricalPeriods() async {
     emit(GetHistoricalPeriodsLoading());
@@ -17,20 +16,22 @@ class HomeCubit extends Cubit<HomeState> {
       await FirebaseFirestore.instance
           .collection(AppFirebaseStrings.historicalPeriods)
           .get()
-          .then((value) {
+          .then((value) async {
         for (var element in value.docs) {
-          getHistoricalPeriodWars(element);
-          historicalPeriods
-              .add(HistoricalPeriodsModel.fromJson(element.data(), wars));
-          emit(GetHistoricalPeriodsSuccess());
+          List<WarsModel> warsList = [];
+          await getHistoricalPeriodWars(element, warsList);
+          historicalPeriodsList
+              .add(HistoricalPeriodsModel.fromJson(element.data(), warsList));
         }
+        emit(GetHistoricalPeriodsSuccess());
       });
     } on Exception catch (e) {
       emit(GetHistoricalPeriodsError(errorMessage: e.toString()));
     }
   }
 
-  Future<void> getHistoricalPeriodWars(element) async {
+  getHistoricalPeriodWars(QueryDocumentSnapshot<Map<String, dynamic>> element,
+      List<WarsModel> warsList) async {
     await FirebaseFirestore.instance
         .collection(AppFirebaseStrings.historicalPeriods)
         .doc(element.id)
@@ -38,7 +39,7 @@ class HomeCubit extends Cubit<HomeState> {
         .get()
         .then((value) => {
               for (var element in value.docs)
-                {wars.add(HistoricalPeriodWarsModel.fromJson(element.data()))}
+                {warsList.add(WarsModel.fromJson(element.data()))}
             });
   }
 }
