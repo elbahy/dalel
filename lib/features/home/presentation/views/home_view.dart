@@ -1,3 +1,4 @@
+import 'package:dalel/core/functions/navigation.dart';
 import 'package:dalel/features/home/presentation/widgets/home_sections/historical_characters_section.dart';
 import 'package:dalel/features/home/presentation/widgets/home_sections/historical_periods_section.dart';
 import 'package:dalel/features/home/presentation/widgets/home_sections/historical_souvenirs_section.dart';
@@ -9,8 +10,13 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            customNavigate(context, '/chat');
+          },
+          child: const Icon(Icons.chat)),
+      body: const Padding(
         padding: EdgeInsets.all(16),
         child: CustomScrollView(slivers: [
           //! Home AppBar Section

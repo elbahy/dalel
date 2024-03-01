@@ -11,6 +11,7 @@ class HistoricalCharactersSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTextHeader(text: AppStrings.historicalCharacters),
         SizedBox(height: 16),
