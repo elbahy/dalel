@@ -4,8 +4,13 @@ import 'package:dalel/features/home/data/models/historical_period_wars_model.dar
 
 class HistoricalPeriodsModel extends DataListModel {
   final List<WarsModel> wars;
+  final String logoUrl;
+  final String bgUrl;
+
   HistoricalPeriodsModel(
-      {required this.wars,
+      {required this.logoUrl,
+      required this.bgUrl,
+      required this.wars,
       required super.name,
       required super.imageUrl,
       required super.description});
@@ -15,6 +20,8 @@ class HistoricalPeriodsModel extends DataListModel {
         name: jsonData[AppFirebaseStrings.name],
         imageUrl: jsonData[AppFirebaseStrings.imageUrl],
         description: jsonData[AppFirebaseStrings.description],
+        logoUrl: jsonData[AppFirebaseStrings.logoUrl],
+        bgUrl: jsonData[AppFirebaseStrings.bgUrl],
         wars: warsList);
   }
 }

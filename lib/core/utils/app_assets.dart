@@ -1,6 +1,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for assetsImagesKey
+  /// assets/images/key.svg
+  static const String assetsImagesKey = "assets/images/key.svg";
+
   /// Assets for assetsImagesMenu
   /// assets/images/menu.svg
   static const String assetsImagesMenu = "assets/images/menu.svg";
@@ -32,6 +36,10 @@ class Assets {
   /// Assets for assetsImagesPyr
   /// assets/images/pyr.png
   static const String assetsImagesPyr = "assets/images/pyr.png";
+
+  /// Assets for assetsImagesPyramid
+  /// assets/images/Pyramid.svg
+  static const String assetsImagesPyramid = "assets/images/Pyramid.svg";
 
   /// Assets for assetsImagesPyramids
   /// assets/images/pyramids.svg

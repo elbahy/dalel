@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dalel/core/utils/app_firebase_strings.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,8 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> addUserProfile() async {
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    CollectionReference users =
+        FirebaseFirestore.instance.collection(AppFirebaseStrings.users);
     await users.add({
       'email': emailAddress,
       'first_name': firstName,

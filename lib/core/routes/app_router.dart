@@ -3,7 +3,6 @@ import 'package:dalel/features/auth/presentation/views/signin_view.dart';
 import 'package:dalel/features/auth/presentation/views/signup_view.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:dalel/features/home/data/models/historical_periods_model.dart';
-import 'package:dalel/features/home/presentation/views/chat_view.dart';
 import 'package:dalel/features/home/presentation/views/historical_period_view.dart';
 import 'package:dalel/features/home/presentation/widgets/home_view_nav.dart';
 import 'package:dalel/features/onboarding/presentation/views/onboarding_view.dart';
@@ -45,10 +44,6 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/home',
       builder: (context, state) => const HomeViewNav(),
-    ),
-    GoRoute(
-      path: '/chat',
-      builder: (context, state) => const ChatView(),
     ),
     GoRoute(
       path: '/historicalPeriodsView',
